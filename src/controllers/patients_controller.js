@@ -47,10 +47,11 @@ const GetPatient = async(req,res) => {
 
 const GetPatientById = async(req,res) => {
     try {
-        const {codigo} = req.param
-        if(!codigo){return res.status(400).json({msg:"Lo sentimos, debes proporcionar un codigo"})}
+        const {email} = req.params
 
-        const patientBDD = await findOne({codigo:codigo})
+        if(!email){return res.status(400).json({msg:"Lo sentimos, debes proporcionar un correo"})}
+
+        const patientBDD = await Patients.findOne({email:email})
         if(!patientBDD){return res.status(400).json({msg:"El paciente no existe"})}
 
         const response = {

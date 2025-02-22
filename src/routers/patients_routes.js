@@ -5,7 +5,7 @@ import {RegisterPatient,GetPatient,GetPatientById,UpdatePatient,DeletePatient} f
 const router = Router()
 router.post('/patients/register',RegisterPatient)
 router.get('/patients/',GetPatient)
-router.get('/patients/:codigo',GetPatientById)
+router.get('/patients/:email',GetPatientById)
 router.patch('/patients/update/:id',UpdatePatient)
 router.delete('/patients/delete/:id',DeletePatient)
 
