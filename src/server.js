@@ -4,6 +4,7 @@ import cors from 'cors';
 import auth from './routers/auth_routes.js'
 import patients from './routers/patients_routes.js'
 import specialities from './routers/specialities_routes.js'
+import dates from './routers/date_routes.js'
 
 // Inicializaciones
 
@@ -30,6 +31,7 @@ app.get('/',(req,res)=>{
 app.use('/api/',auth)
 app.use('/api/',patients)
 app.use('/api/',specialities)
+app.use('/api/',dates)
 
 
 //Rutas no encontradas
