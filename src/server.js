@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import auth from './routers/auth_routes.js'
 import patients from './routers/patients_routes.js'
+import specialities from './routers/specialities_routes.js'
 
 // Inicializaciones
 
@@ -28,6 +29,7 @@ app.get('/',(req,res)=>{
 
 app.use('/api/',auth)
 app.use('/api/',patients)
+app.use('/api/',specialities)
 
 
 //Rutas no encontradas
