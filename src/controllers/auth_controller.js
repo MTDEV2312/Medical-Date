@@ -1,4 +1,5 @@
 import User from '../models/user_model.js'
+import {generateJWT} from '../middlewares/jwt.js'
 
 const login = async (req,res) => {
     try {
@@ -13,11 +14,13 @@ const login = async (req,res) => {
         const UserBDD = await User.findOne({email:email})
         if(!UserBDD){return res.status(400).json({msg:"Usuario o contraseña incorrectos."})}
     
-        const verifyPassword = await User.ValidatePassword(password)
+        const verifyPassword = await UserBDD.ValidatePassword(password)
     
         if(!verifyPassword){
             return res.status(400).json({msg: "Usuario o contraseña incorrectos"})
         }
+
+        const token = generateJWT(UserBDD.id)
     
         const response={
             _id:UserBDD.id,
@@ -26,7 +29,7 @@ const login = async (req,res) => {
             apellido:UserBDD.apellido
         }
     
-        res.status(200).json({msg:"Login exitoso",response})
+        res.status(200).json({msg:"Login exitoso",response,token})
     } catch (error) {
         console.log(error)
         res.status(500).json({msg:"Lo sentimos, algo salio mal"})

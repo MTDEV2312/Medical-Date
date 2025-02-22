@@ -17,7 +17,7 @@ const RegisterSpecialities = async (req,res) => {
     
         const newSpeciality = new Specialities (req.body)
         await newSpeciality.save()
-        return res.status(201).json({msg:"Paciente Creado exitosamente"})
+        return res.status(201).json({msg:"Especialidad Creada exitosamente"})
     } catch (error) {
         console.log(error)
         return res.status(500).json({msg:"Lo sentimos, algo salio mal"})
