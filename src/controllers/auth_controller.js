@@ -10,7 +10,7 @@ const login = async (req,res) => {
         }
     
         //? Verifica si el email es valido
-        const UserBDD = await findOne({email})
+        const UserBDD = await User.findOne({email:email})
         if(!UserBDD){return res.status(400).json({msg:"Usuario o contraseña incorrectos."})}
     
         const verifyPassword = await User.ValidatePassword(password)
