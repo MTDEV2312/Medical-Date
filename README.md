@@ -1,4 +1,4 @@
-# Medical Date - Backend
+# Sistema de gestión de citas médicas. - Backend
 
 ## Descripción
 Medical Date es un sistema de gestión de citas médicas desarrollado en Node.js con Express y MongoDB. Permite gestionar pacientes, especialidades médicas y la asignación de citas.
